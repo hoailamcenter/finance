@@ -1,8 +1,11 @@
 package com.finance.dto.keyInformantionGroup;
 
 import com.finance.dto.ABasicAdminDto;
+import com.finance.dto.keyInformation.KeyInformationDto;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+
+import java.util.List;
 
 @Data
 public class KeyInformationGroupAdminDto extends ABasicAdminDto {
@@ -10,4 +13,6 @@ public class KeyInformationGroupAdminDto extends ABasicAdminDto {
     private String name;
     @ApiModelProperty(name = "description")
     private String description;
+    @ApiModelProperty(name = "keyInformations")
+    private List<KeyInformationDto> keyInformations;
 }

@@ -32,7 +32,11 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.math.BigInteger;
+import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/v1/transaction")
@@ -178,6 +182,7 @@ public class TransactionController extends ABasicController{
         responseListObj.setTotalExpenditure(encryptedTotalExpenditure);
         return makeSuccessResponse(responseListObj, "Get my transactions success");
     }
+
     @PutMapping(value = "/approve", produces = MediaType.APPLICATION_JSON_VALUE)
     @PreAuthorize("hasRole('TR_A')")
     public ApiMessageDto<String> approve(@Valid @RequestBody ApproveTransactionForm approveTransactionForm, BindingResult bindingResult) {
