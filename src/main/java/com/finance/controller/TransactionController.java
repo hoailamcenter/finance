@@ -174,12 +174,12 @@ public class TransactionController extends ABasicController{
             }
         }
         List<TransactionAdminDto> transactionDtos = transactionMapper.fromEntityListToTransactionAdminDtoList(transactions);
-        String encryptedTotalIncome = ConvertUtils.convertDoubleToString(totalIncome);
-        String encryptedTotalExpenditure = ConvertUtils.convertDoubleToString(totalExpenditure);
+        String totalIncomeStandard = ConvertUtils.convertDoubleToString(totalIncome);
+        String totalExpenditureStandard = ConvertUtils.convertDoubleToString(totalExpenditure);
         ResponseListMyTransactionDto<List<TransactionAdminDto>> responseListObj = new ResponseListMyTransactionDto<>();
         responseListObj.setContent(transactionDtos);
-        responseListObj.setTotalIncome(encryptedTotalIncome);
-        responseListObj.setTotalExpenditure(encryptedTotalExpenditure);
+        responseListObj.setTotalIncome(totalIncomeStandard);
+        responseListObj.setTotalExpenditure(totalExpenditureStandard);
         return makeSuccessResponse(responseListObj, "Get my transactions success");
     }
 
